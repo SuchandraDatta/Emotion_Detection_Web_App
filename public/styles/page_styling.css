@@ -1,0 +1,47 @@
+#input_image_container
+{
+	display: none;
+}
+#top_pane
+{
+	height: 60vh;
+	width: 100vw;
+	background-image: url("../images/pic1.jpg");
+	background-size: cover;
+	/*border-bottom-left-radius: 25%;
+	border-bottom-right-radius: 25%;*/
+	text-align: center;
+}
+#top_pane p
+{
+	display: inline;
+	color: white;
+	font-weight: bolder;
+	font-size: 1.7em;
+	position: relative;
+	top: 11vh;
+}
+.container
+{
+	display: flex;
+	justify-content: center;
+}
+input
+{
+	font-size: 0.7em;
+}
+.flex-item
+{
+	height: 20vw;
+	width: 30vw;
+	margin: 5%;
+	padding: 1em;
+	border-radius: 1em;
+	box-shadow: 0 0 25px 1px rgb(0 0 0 / 50%);
+	text-align: center;
+}
+#tray
+{
+	position: relative;
+	top: 10vh;
+}
