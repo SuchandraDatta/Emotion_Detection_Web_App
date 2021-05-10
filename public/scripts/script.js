@@ -4,7 +4,7 @@ function display(event)
 		input_image.src = URL.createObjectURL(event.target.files[0]);
 		document.getElementById("input_image_container").style.display = "block";
 	}
-	async function predict_emotion()
+async function predict_emotion()
 	{
 		let input = document.getElementById("input_image");
 		//Preprocessing steps 
@@ -23,11 +23,22 @@ function display(event)
 		//This array is encoded with index i = corresponding emotion. In dataset, 0 = Angry, 1 = Disgust, 2 = Fear, 3 = Happy, 4 = Sad, 5 = Surprise and 6 = Neutral
 		emotions = ["Angry", "Disgust", "Fear", "Happy", "Sad", "Surprise", "Neutral"]
 		//At which index in tensor we get the largest value ?
-		required_index = pred.argMax(axis=1)
+		pred.data()
+		    .then((data) => {console.log(data)
+		    	output = document.getElementById("output_chart")
+		    	output.innerHTML = ""
+				for(let i=0;i<data.length;i++)
+				{
+					style_text = "width: "+data[i]*150+"px; height: 25px; position:relative; margin-top: 3vh; background-color: violet; "
+					output.innerHTML+="<div style = '" +style_text+ "'></div>"
+				}
+				document.getElementsByClassName("output_screen")[0].style.display="flex";
+			})
+		/*required_index = pred.argMax(axis=1)
 		required_index.print()
 		required_index.data().then((data) => {
 			const EMOTION_PREDICTED = emotions[data["0"]]
 			console.log("The predicted emotion is " + EMOTION_PREDICTED)
-		})
+		})*/
 
 	}

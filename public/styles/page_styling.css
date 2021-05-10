@@ -2,6 +2,11 @@
 {
 	display: none;
 }
+#input_image
+{
+	position:relative; 
+	margin-left: 17vw;
+}
 #top_pane
 {
 	height: 60vh;
@@ -25,15 +30,16 @@
 {
 	display: flex;
 	justify-content: center;
+	flex-wrap: wrap;
 }
 input
 {
 	font-size: 0.7em;
 }
-.flex-item
+.custombutton
 {
 	height: 20vw;
-	width: 30vw;
+	width: 25vw;
 	margin: 5%;
 	padding: 1em;
 	border-radius: 1em;
@@ -44,4 +50,32 @@ input
 {
 	position: relative;
 	top: 10vh;
+}
+.output_screen
+{
+	position: relative;
+	top: 10vh;
+	display: none;
+	text-align: center;
+	border: 1px solid black;
+	padding: 2em;
+}
+#output_chart
+{
+	position: relative;
+	margin-left: 10vw; 
+}
+#emotion_tags
+{
+	width: 25vw;
+}
+#emotion_tags ul
+{
+	list-style-type: none;
+	position: relative;
+}
+/*Make sure this value corresponds to the bars in the graph*/
+li
+{
+	margin-top: 4.2vh;
 }
