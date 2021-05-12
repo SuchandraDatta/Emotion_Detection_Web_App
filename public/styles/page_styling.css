@@ -1,11 +1,17 @@
+/*Works well for 360*640 size devices */
 #input_image_container
 {
 	display: none;
+	position: relative;
+	width: 80%;
+	margin: auto;
 }
 #input_image
 {
 	position:relative; 
-	margin-left: 17vw;
+	max-width: 100%;
+	height: 150px;
+	margin-left: 15vw;
 }
 #top_pane
 {
@@ -74,8 +80,67 @@ input
 	list-style-type: none;
 	position: relative;
 }
+@media screen and (min-width: 320px and max-width: 375px)
+{
+	.output_screen
+	{
+		margin-left: 4%;
+	}
+}
 /*Make sure this value corresponds to the bars in the graph*/
 li
 {
 	margin-top: 4.2vh;
 }
+/*768px is for ipad*/
+@media screen and (min-width: 768px and max-width: 868px)
+{
+	#input_image_container
+	{
+		margin-left: 40vw;
+	}
+	.custombutton
+	{
+		height: 11vw;
+		width: 15vw;
+	}
+	.output_screen
+	{
+		margin: 1.5em;
+	}
+}
+/*869px is for larger ipads and desktop*/
+@media screen and (min-width: 869px)
+{
+	body
+	{
+		background-image: url("../images/desktoppic1.jpg");
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+	#top_pane
+	{
+		background-image: none;	
+	}
+	#tray
+	{
+		top: 65vh;
+	}
+	.custombutton
+	{
+		height: 11vw;
+		width: 15vw;
+	}
+	#input_image_container
+	{
+		margin-left: 45vw;
+    	top: 50vh;
+	}
+	.output_screen
+	{
+		position: absolute;
+		top: 200vh;
+		left: 10vw;
+	}
+}
+

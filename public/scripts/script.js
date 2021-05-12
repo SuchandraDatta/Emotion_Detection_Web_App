@@ -27,12 +27,22 @@ async function predict_emotion()
 		    .then((data) => {console.log(data)
 		    	output = document.getElementById("output_chart")
 		    	output.innerHTML = ""
+		    	max_val = -1
+		    	max_val_index = -1
 				for(let i=0;i<data.length;i++)
 				{
 					style_text = "width: "+data[i]*150+"px; height: 25px; position:relative; margin-top: 3vh; background-color: violet; "
 					output.innerHTML+="<div style = '" +style_text+ "'></div>"
+					if(data[i] > max_val)
+					{
+						max_val = data[i]
+						max_val_index = i
+					}
 				}
+				EMOTION_DETECTED = emotions[max_val_index]
 				document.getElementsByClassName("output_screen")[0].style.display="flex";
+				document.getElementById("output_text").innerHTML=""
+				document.getElementById("output_text").innerHTML = "<p>Emotions and corresponding scaled up probability</p><p>Emotion detected: " + EMOTION_DETECTED + "(" + (max_val*100).toFixed(2) + "% probability)</p>"
 			})
 		/*required_index = pred.argMax(axis=1)
 		required_index.print()
