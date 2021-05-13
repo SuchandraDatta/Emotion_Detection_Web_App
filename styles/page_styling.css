@@ -80,6 +80,32 @@ input
 	list-style-type: none;
 	position: relative;
 }
+/*Quotes section*/
+.quotes_screen
+{
+	position: relative;
+	margin-top: 10vh;
+}
+.quotes_pane
+{
+	width: 80%;
+	background-color: pink;
+	height: 40vh;
+	background-image: url("../images/pic21.jpg");
+	background-size: cover;
+	position: relative;
+	margin-top: 30vh;
+}
+.quote
+{
+	position: absolute;
+	text-align: center;
+	padding: 1em;
+	width: 70%;
+	height: 80%;
+	right: 0px;
+}
+/*All media queries starts from here*/
 @media screen and (min-width: 320px and max-width: 375px)
 {
 	.output_screen
@@ -108,14 +134,18 @@ li
 	{
 		margin: 1.5em;
 	}
+	.quotes_pane
+	{
+		width: 40%;
+		margin-left: 5%;
+	}
 }
 /*869px is for larger ipads and desktop*/
-@media screen and (min-width: 869px)
+@media screen and (min-width: 869px and max-width: 885px)
 {
 	body
 	{
 		background-image: url("../images/desktoppic1.jpg");
-		background-size: cover;
 		background-repeat: no-repeat;
 	}
 	#top_pane
@@ -124,7 +154,7 @@ li
 	}
 	#tray
 	{
-		top: 65vh;
+		top: 165vh;
 	}
 	.custombutton
 	{
@@ -134,13 +164,64 @@ li
 	#input_image_container
 	{
 		margin-left: 45vw;
-    	top: 50vh;
+    	top: 150vh;
 	}
 	.output_screen
 	{
 		position: absolute;
-		top: 200vh;
+		top: 300vh;
 		left: 10vw;
 	}
+	.quotes_screen
+	{
+		position: relative;
+		margin-top: 250vh;
+	}
+	.quotes_pane
+	{
+		width: 40%;
+		margin-left: 5%;
+	}
 }
-
+@media screen and (min-width: 886px)
+{
+	body
+	{
+		background-image: url("../images/desktoppic1.jpg");
+		background-repeat: no-repeat;
+	}
+	#top_pane
+	{
+		background-image: none;	
+	}
+	#tray
+	{
+		top: 165vh;
+	}
+	.custombutton
+	{
+		height: 11vw;
+		width: 15vw;
+	}
+	#input_image_container
+	{
+		margin-left: 45vw;
+    	top: 150vh;
+	}
+	.output_screen
+	{
+		position: absolute;
+		top: 300vh;
+		left: 10vw;
+	}
+	.quotes_screen
+	{
+		position: relative;
+		margin-top: 250vh;
+	}
+	.quotes_pane
+	{
+		width: 30%;
+		margin-left: 5%;
+	}
+}

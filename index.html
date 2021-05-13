@@ -10,7 +10,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
 <body>
 	<div id="top_pane">
-		<p>EMOTION DETECTION APP</p>
+		<p>QuotesZone_AI an emotion detection web app</p>
 	</div>
 
 	<div id="input_image_container"><img src="#" id="input_image" style="top:5vh;"></div>
@@ -40,6 +40,31 @@
 		<div id="output_chart"></div>
 		<div id="output_text"></div>
 	</div>
+	<div class="container quotes_screen">
+	</div>
 <script src="scripts/script.js"></script>
+<script type="text/javascript">
+	function call_api(URL)
+	{
+		fetch(URL)
+		.then(response => response.json())
+		.then((data) =>{
+			console.log(data)
+		innerHTMLtext = ""
+		for(let i=0;i<data.length;i++)
+		{
+			console.log(data[i]["quote"])
+			console.log(data[i]["character"])
+			if(data[i]["quote"].length<=200)
+			{
+				innerHTMLtext+="<div class='quotes_pane'><div class='quote'>"+data[i]["quote"]+"</div></div>"
+			}
+		}
+		document.getElementsByClassName("quotes_screen")[0].innerHTML = innerHTMLtext
+	  })
+	}
+	
+	//call_api(URL_LIST[3])
+</script>
 </body>
 </html>

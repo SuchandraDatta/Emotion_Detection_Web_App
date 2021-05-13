@@ -1,3 +1,14 @@
+/*Constants*/
+URL_SAD = "https://animechan.vercel.app/api/quotes/anime?title=Nichijou"
+URL_HAPPY = "https://animechan.vercel.app/api/quotes/anime?title=Bakuman"
+URL_NEUTRAL = "https://animechan.vercel.app/api/quotes/anime?title=naruto"
+URL_ANGRY = "https://animechan.vercel.app/api/quotes/anime?title=Monster"
+URL_DISGUST = "https://animechan.vercel.app/api/quotes/anime?title=Death Note"
+URL_FEAR = "https://animechan.vercel.app/api/quotes/anime?title=Shirobako"
+URL_SURPRISE = "https://animechan.vercel.app/api/quotes/anime?title=Dragon Ball Z"
+URL_LIST = [URL_ANGRY, URL_DISGUST, URL_FEAR, URL_HAPPY, URL_SAD, URL_SURPRISE, URL_NEUTRAL]
+
+
 function display(event)
 	{
 		let input_image = document.getElementById("input_image")
@@ -43,7 +54,24 @@ async function predict_emotion()
 				document.getElementsByClassName("output_screen")[0].style.display="flex";
 				document.getElementById("output_text").innerHTML=""
 				document.getElementById("output_text").innerHTML = "<p>Emotions and corresponding scaled up probability</p><p>Emotion detected: " + EMOTION_DETECTED + "(" + (max_val*100).toFixed(2) + "% probability)</p>"
+				//Now display quotes depending on detected emotion
+				fetch(URL_LIST[max_val_index])
+				.then(response => response.json())
+				.then((data) =>{
+						console.log(data)
+				innerHTMLtext = ""
+				for(let i=0;i<data.length;i++)
+				{
+					console.log(data[i]["quote"])
+					console.log(data[i]["character"])
+					if(data[i]["quote"].length<=200)
+					{
+						innerHTMLtext+="<div class='quotes_pane'><div class='quote'>"+data[i]["quote"]+"</div></div>"
+					}
+				}
+				document.getElementsByClassName("quotes_screen")[0].innerHTML = innerHTMLtext
 			})
+		})
 		/*required_index = pred.argMax(axis=1)
 		required_index.print()
 		required_index.data().then((data) => {
