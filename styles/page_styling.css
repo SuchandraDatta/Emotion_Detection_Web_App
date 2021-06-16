@@ -1,4 +1,8 @@
 /*Works well for 360*640 size devices */
+body
+{
+	margin: 0;
+}
 #input_image_container
 {
 	display: none;
@@ -9,7 +13,7 @@
 #input_image
 {
 	position:relative; 
-	max-width: 100%;
+	width: 150px;
 	height: 150px;
 	margin-left: 15vw;
 }
@@ -56,6 +60,7 @@ input
 {
 	position: relative;
 	top: 10vh;
+	margin-bottom: 10vh;
 }
 .output_screen
 {

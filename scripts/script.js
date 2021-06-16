@@ -17,6 +17,10 @@ function display(event)
 	}
 async function predict_emotion()
 	{
+		pleasewait = document.getElementById("pleasewait").style.display="flex";
+		output = document.getElementById("output_chart")
+		    	output.innerHTML = ""
+		    	
 		let input = document.getElementById("input_image");
 		//Preprocessing steps 
 		/*
@@ -42,7 +46,7 @@ async function predict_emotion()
 		    	max_val_index = -1
 				for(let i=0;i<data.length;i++)
 				{
-					style_text = "width: "+data[i]*150+"px; height: 25px; position:relative; margin-top: 3vh; background-color: violet; "
+					style_text = "width: "+data[i]*150+"px; height: 25px; position:relative; margin-top: 3.5vh; background-color: violet; "
 					output.innerHTML+="<div style = '" +style_text+ "'></div>"
 					if(data[i] > max_val)
 					{
@@ -51,6 +55,7 @@ async function predict_emotion()
 					}
 				}
 				EMOTION_DETECTED = emotions[max_val_index]
+				document.getElementById("pleasewait").style.display="None";
 				document.getElementsByClassName("output_screen")[0].style.display="flex";
 				document.getElementById("output_text").innerHTML=""
 				document.getElementById("output_text").innerHTML = "<p>Emotions and corresponding scaled up probability</p><p>Emotion detected: " + EMOTION_DETECTED + "(" + (max_val*100).toFixed(2) + "% probability)</p>"
@@ -70,8 +75,8 @@ async function predict_emotion()
 					}
 				}
 				document.getElementsByClassName("quotes_screen")[0].innerHTML = innerHTMLtext
-			})
-		})
+			}).catch(()=>{document.getElementById("pleasewait").innerHTML="Error occurred please try again later"})
+		}).catch(()=>{document.getElementById("pleasewait").innerHTML="Error occurred please try again later"})
 		/*required_index = pred.argMax(axis=1)
 		required_index.print()
 		required_index.data().then((data) => {
